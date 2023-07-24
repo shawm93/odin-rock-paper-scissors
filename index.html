@@ -2,8 +2,48 @@
 <head>
   <meta charset="UTF-8">
   <title>Paper, Scissors, Rock!</title>
+  <script src="index.js" defer></script>
+  <link rel="stylesheet" href="index.css" />
 </head>
 <body>
-  <script src="index.js"></script>
+  <h1 class="msg_input">Please input your name to start playing the tape</h1>
+  <input type="text" id="name" name="name" required>
+  <button id="submit">Submit</button>
+
+  <h1 class="msg1"></h1>
+
+  <button id="accept" style="display:none;">I ACCEPT</button>
+
+  <!-- <button>I Accept</button> -->
+  <h1 class="msg2"></h1>
+  <h1 class="timer"></h1>
+
+  <h1 class="msg3"></h1>
+  <div class="container_diff">
+    <button class="panel panel1" value="Rock">
+      <p>ROCK</p>
+      <img src="src/rock.png" />
+      <p>Against SCISSORS</p>
+    </button>
+    <button class="panel panel2" value="Paper">
+      <p>PAPER</p>
+      <img src="src/papers.png" />
+      <p>Against ROCK</p>
+    </button>
+    <button class="panel panel3" value="Scissors">
+      <p>SCISSORS</p>
+      <img src="src/scissors.png" />
+      <p>Against PAPER</p>
+    </button>
+  </div>
+  <h2 class="result"></h2>
+  <div class="results">
+    <h2 class="you"></h2>
+    <h2 class="pc"></h2>
+    <h2 class="ur_score"></h2>
+    <h2 class="pc_score"></h2>
+  </div>
+  <h1 class="winner"></h1>
+  <button class="again" style="display:none;">Play again?</button>
 </body>
 </html>
