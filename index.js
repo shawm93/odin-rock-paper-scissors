@@ -20,6 +20,27 @@ const getComputerChoice = () => {
     return choice[Math.floor(Math.random()*3)];
 }
 
+const startGame = () => {
+    document.querySelector('.msg3').innerHTML = `Make your move`;
+    document.querySelector('.container_diff').setAttribute("style", "display: flex;");
+    document.querySelector('.ur_score').innerHTML = `0`;
+    document.querySelector('.pc_score').innerHTML = `0`;
+    document.querySelector('.pc').innerHTML = `COMPUTER`;
+    document.querySelector('.you').innerHTML = `PLAYER`;
+}
+
+const announceWinner = (outcome) => {
+    document.querySelector(".winner").innerHTML = outcome;
+    document.querySelector('.container_diff').setAttribute("style", "display: none;");
+    document.querySelector('.msg3').innerHTML = ``;
+    document.querySelector('.again').setAttribute("style", "display: block;");
+    document.querySelector('.ur_score').innerHTML = ``;
+    document.querySelector('.pc_score').innerHTML = ``;
+    document.querySelector('.pc').innerHTML = ``;
+    document.querySelector('.you').innerHTML = ``;
+    document.querySelector('.result').innerHTML = ``;
+}
+
 document.querySelector('#submit').addEventListener('click', () => {
     const name_val = document.querySelector("#name").value;
     document.querySelector('.msg1').innerHTML = `Greetings Mr ${name_val}. At the moment of this message, a missle has been fired, aiming at your capital city. As we are decoding the defence system of the missle, there is a rock-paper-scissors game in-built in the system. The only way to stop it, is to win the game, reach the required points first, so that the missle could be disarmed from detonation. In the mission, should you be caught or killed, the Secretary will disavow any knowledge of your actions. Your mission, Mr ${name_val}, should you choose to accept it...`;
@@ -54,12 +75,7 @@ accept.addEventListener('click', () => {
             document.querySelector(".timer").innerHTML = 0;
             document.querySelector(".timer").setAttribute("style", "display: none;");
             document.querySelector('.msg2').setAttribute("style", "display: none;");
-            document.querySelector('.msg3').innerHTML = `Make your move`;
-            document.querySelector('.container_diff').setAttribute("style", "display: flex;");
-            document.querySelector('.ur_score').innerHTML = `0`;
-            document.querySelector('.pc_score').innerHTML = `0`;
-            document.querySelector('.pc').innerHTML = `COMPUTER`;
-            document.querySelector('.you').innerHTML = `PLAYER`;
+            startGame();
         }
     }, 1000);
 })
@@ -84,40 +100,18 @@ panels.forEach(panel => panel.addEventListener('click', () => {
     } 
     if (computerScore == 5) {
         let result = `You lose... You score ${playerScore} points`;
-        document.querySelector(".winner").innerHTML = result;
-        document.querySelector('.container_diff').setAttribute("style", "display: none;");
-        document.querySelector('.msg3').innerHTML = ``;
- 
-        document.querySelector('.again').setAttribute("style", "display: block;");
-        document.querySelector('.ur_score').innerHTML = ``;
-        document.querySelector('.pc_score').innerHTML = ``;
-        document.querySelector('.pc').innerHTML = ``;
-        document.querySelector('.you').innerHTML = ``;
-        document.querySelector('.result').innerHTML = ``;
+        announceWinner(result);
     }
     if (playerScore == 5) {
         let result = `You win! Computer scores ${computerScore} points`;
-        document.querySelector(".winner").innerHTML = result;
-        document.querySelector('.container_diff').setAttribute("style", "display: none;");
-        document.querySelector('.msg3').innerHTML = ``;
-        document.querySelector('.again').setAttribute("style", "display: block;");
-        document.querySelector('.ur_score').innerHTML = ``;
-        document.querySelector('.pc_score').innerHTML = ``;
-        document.querySelector('.pc').innerHTML = ``;
-        document.querySelector('.you').innerHTML = ``;
-        document.querySelector('.result').innerHTML = ``;
+        announceWinner(result);
     }
 }))
 
 document.querySelector('.again').addEventListener('click', () => {
-    document.querySelector('.msg3').innerHTML = `Make your move`;
-    document.querySelector('.container_diff').setAttribute("style", "display: flex;");
     playerScore = 0;
     computerScore = 0;
     document.querySelector(".winner").innerHTML = ``;
     document.querySelector('.again').setAttribute("style", "display: none;");
-    document.querySelector('.ur_score').innerHTML = `0`;
-    document.querySelector('.pc_score').innerHTML = `0`;
-    document.querySelector('.pc').innerHTML = `COMPUTER`;
-    document.querySelector('.you').innerHTML = `PLAYER`;
+    startGame();
 })
