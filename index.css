@@ -1,21 +1,64 @@
 .container_diff {
     overflow: hidden;
     display: none;
-    gap: 5%;
-    margin: auto 5%;
+    gap: 2.5%;
+    margin: auto;
+    width: 70%;
+}
+
+button {
+    border-radius: 10%;
+    color: #CBE4DE;
+    border: 1px solid #2C3333;
+    background-color: #2E4F4F;
+    font-size: 15px;
+    padding: 5px 10px;
+    margin: 10px;
+}
+
+button:hover {
+    color: #2e4f4f;
+    background-color: #CBE4DE;
 }
 
 body {
+    background-color: #CBE4DE;
+    color: #2C3333;
+}
+
+.struct {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    height: 80vh;
 }
 
-.msg3, .result, .msg_input, #submit, .msg1, .msg2 {
-    margin: 5%;
+input {
+    background-color: #CBE4DE;
+    border: 1px solid #2C3333;
+    border-radius: 10%;
+    height: 20px;
+    margin: 5% 0;
+    width: 300px;
+    text-align: center;
+    color: #2C3333;
+    font-size: larger;
 }
 
+/* .msg3, .msg_input, #submit, .msg1, .msg2 {
+    margin: 1.75%;
+}
+
+.result {
+    margin: 1%;
+} */
+
+.msg1 {
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
 
 .panel {
     background: none;
@@ -29,7 +72,7 @@ body {
       font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
       flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
       background 0.2s;
-    font-size: 15px;
+    font-size: 10px;
     background-size: cover;
     background-position: space-evenly;
     flex: 1;
@@ -40,8 +83,8 @@ body {
 
 .panel > * {
     margin: 0;
-    width: 50%;
-    transition: transform 0.7s;
+    width: 35%;
+    transition: transform 0.2s;
     flex: 1 0 auto;
     display: flex;
     justify-content: center;
@@ -57,7 +100,7 @@ body {
 .panel p {
     text-transform: uppercase;
     font-family: 'Amatic SC', cursive;
-    color: black;
+    color: #2C3333;
     /* text-shadow: 0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45); */
     font-size: 2em;
 }
@@ -80,12 +123,152 @@ body {
 
 .panel:hover {
     flex: 1;
-    font-size: 40px;
+    font-size: 20px;
 }
 
 .panel:hover > p {
-    /* text-shadow: 0 0 4px #ffc600; */
-    text-shadow: 0 0 4px darkblue;
-    color: white;
+    text-shadow: 0 0 4px #0E8388;
+    color: #2E4F4F;
 }
 
+@keyframes appearOut {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.site-footer
+{
+  font-size:15px;
+  line-height:24px;
+  width: 100%;
+  margin: 0;
+}
+.site-footer hr
+{
+  border-top-color:#461111;
+  opacity:0.5;
+}
+.site-footer hr.small
+{
+  margin:20px 0
+}
+.site-footer a
+{
+  color:black;
+  font-weight: bold;
+}
+.site-footer a:hover
+{
+  text-decoration:underline;
+  color: #0E8388;
+}
+.site-footer .social-icons
+{
+  text-align:center;
+  align-content: center;
+}
+.site-footer .social-icons a
+{
+  width:40px;
+  height:40px;
+  line-height:40px;
+  margin-left:6px;
+  margin-right:0;
+  border-radius:100%;
+  background-color: #2C3333;
+  align-items: center;
+}
+.copyright-text
+{
+  margin:0;
+  text-align: center;
+}
+@media (max-width:991px)
+{
+  .site-footer [class^=col-]
+  {
+    margin-bottom:30px
+  }
+}
+@media (max-width:767px)
+{
+  .site-footer
+  {
+    padding-bottom:0
+  }
+}
+.social-icons
+{
+  padding-left:0;
+  margin-bottom:0;
+  list-style:none
+}
+.social-icons li
+{
+  display:inline-block;
+}
+.social-icons li.title
+{
+  margin-right:15px;
+  text-transform:uppercase;
+  color:#96a2b2;
+  font-weight:700;
+  font-size:13px
+}
+.social-icons a{
+  background-color:#eceeef;
+  color:#818a91;
+  font-size:16px;
+  display:inline-block;
+  line-height:44px;
+  width:44px;
+  height:44px;
+  text-align:center;
+  margin-right:8px;
+  border-radius:100%;
+  margin-top: 5%;
+  -webkit-transition:all .2s linear;
+  -o-transition:all .2s linear;
+  transition:all .2s linear
+}
+.social-icons.size-sm a
+{
+  line-height:34px;
+  height:34px;
+  width:34px;
+  font-size:14px
+}
+.social-icons a.github:hover
+{
+  background: #000;
+}
+.social-icons a.medium:hover
+{
+  background-color:#000;
+}
+.social-icons a.linkedin:hover
+{
+  background-color:#007bb6
+}
+.social-icons a.instagram:hover
+{
+    background: #f09433; 
+    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+    background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+}
+@media (max-width:767px)
+{
+  .social-icons li.title
+  {
+    display:block;
+    margin-right:0;
+    font-weight:600
+  }
+}

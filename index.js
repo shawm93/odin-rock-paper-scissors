@@ -21,7 +21,8 @@ const getComputerChoice = () => {
 }
 
 const startGame = () => {
-    document.querySelector('.msg3').innerHTML = `Make your move`;
+    // document.querySelector('.msg3').innerHTML = `Make your move`;
+    document.querySelector('.msg1').innerHTML = `Make your move`;
     document.querySelector('.container_diff').setAttribute("style", "display: flex;");
     document.querySelector('.ur_score').innerHTML = `0`;
     document.querySelector('.pc_score').innerHTML = `0`;
@@ -32,7 +33,8 @@ const startGame = () => {
 const announceWinner = (outcome) => {
     document.querySelector(".winner").innerHTML = outcome;
     document.querySelector('.container_diff').setAttribute("style", "display: none;");
-    document.querySelector('.msg3').innerHTML = ``;
+    // document.querySelector('.msg3').innerHTML = ``;
+    document.querySelector('.msg1').innerHTML = ``;
     document.querySelector('.again').setAttribute("style", "display: block;");
     document.querySelector('.ur_score').innerHTML = ``;
     document.querySelector('.pc_score').innerHTML = ``;
@@ -43,10 +45,16 @@ const announceWinner = (outcome) => {
 
 document.querySelector('#submit').addEventListener('click', () => {
     const name_val = document.querySelector("#name").value;
-    document.querySelector('.msg1').innerHTML = `Greetings Mr ${name_val}. At the moment of this message, a missle has been fired, aiming at your capital city. As we are decoding the defence system of the missle, there is a rock-paper-scissors game in-built in the system. The only way to stop it, is to win the game, reach the required points first, so that the missle could be disarmed from detonation. In the mission, should you be caught or killed, the Secretary will disavow any knowledge of your actions. Your mission, Mr ${name_val}, should you choose to accept it...`;
+    var typed3 = new Typed('.msg1', {
+        strings: [`Greetings Mr ${name_val}. At the moment of this message, a missle has been fired, aiming at your capital city. As we are decoding the defence system of the missle, there is a rock-paper-scissors game in-built in the system. The only way to stop it, is to win the game, reach the required points first, so that the missle could be disarmed from detonation. In the mission, should you be caught or killed, the Secretary will disavow any knowledge of your actions. Your mission, Mr ${name_val}, should you choose to accept it...`],
+        typeSpeed: 10,
+        backSpeed: 0,
+        smartBackspace: true
+    });
     const accept = document.querySelector('#accept');
-    // accept.style.setProperty("display", block);
-    accept.setAttribute("style", "display: block;");
+    setTimeout(()=>{
+        accept.setAttribute("style", "display: block;animation-duration: 5s;animation-name: appearOut;");
+    }, 10000);
     const msg_input = document.querySelector(".msg_input");
     const submit = document.querySelector("#submit");
     const name = document.querySelector("#name");
@@ -60,9 +68,8 @@ const accept = document.querySelector('#accept');
 accept.addEventListener('click', () => {
     const name_val = document.querySelector("#name").value;
     const msg1 = document.querySelector(".msg1");
-    document.querySelector('.msg2').innerHTML = `This tape will self-destruct in five seconds. Good luck, Mr ${name_val}`;
+    document.querySelector('.msg1').innerHTML = `This tape will self-destruct in five seconds. Good luck, Mr ${name_val}`;
     accept.setAttribute("style", "display: none;");
-    msg1.setAttribute("style", "display: none;");
 
     const countDownDate = new Date().getTime();
 
@@ -74,7 +81,7 @@ accept.addEventListener('click', () => {
             // clearInterval(countdown);
             document.querySelector(".timer").innerHTML = 0;
             document.querySelector(".timer").setAttribute("style", "display: none;");
-            document.querySelector('.msg2').setAttribute("style", "display: none;");
+            // document.querySelector('.msg2').setAttribute("style", "display: none;");
             startGame();
         }
     }, 1000);
